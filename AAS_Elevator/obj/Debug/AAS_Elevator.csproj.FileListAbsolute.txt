@@ -1,0 +1,14 @@
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\bin\Debug\AAS_Elevator.exe.config
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\bin\Debug\AAS_Elevator.exe
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\bin\Debug\AAS_Elevator.pdb
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\obj\Debug\AAS_Elevator.csprojResolveAssemblyReference.cache
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\obj\Debug\AAS_Elevator.MainMenu.resources
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\obj\Debug\AAS_Elevator.Properties.Resources.resources
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\obj\Debug\AAS_Elevator.csproj.GenerateResource.Cache
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\obj\Debug\AAS_Elevator.exe
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\obj\Debug\AAS_Elevator.pdb
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\bin\Debug\EntityFramework.dll
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\bin\Debug\EntityFramework.SqlServer.dll
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\bin\Debug\EntityFramework.xml
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\bin\Debug\EntityFramework.SqlServer.xml
+D:\Проекты C#\AAS_Elevator\AAS_Elevator\obj\Debug\AAS_Elevator.LoginForm.resources
