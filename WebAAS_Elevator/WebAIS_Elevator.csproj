@@ -140,11 +140,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegistryOfTTNController.cs" />
     <Compile Include="Controllers\TTNController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\ActionData.cs" />
     <Compile Include="Models\Agriculture.cs" />
     <Compile Include="Models\AnalysisCard.cs" />
     <Compile Include="Models\AnalysisJournal.cs" />

@@ -68,5 +68,17 @@ namespace WebAAS_Elevator.Models
         /// Накладные
         /// </summary>
         public virtual ICollection<TTN> TTN { get; set; }
+
+        public RegistryOfTTN(ActionData actionData)
+        {
+            NumRegistry = (int)actionData.fields[0];
+            Date = (DateTime)actionData.fields[1];
+            Agriculture = (Agriculture)actionData.fields[2];
+            AverageSoreness = (int)actionData.fields[3];
+            AverageHumidity = (int)actionData.fields[4];
+            NumAnCard = (int)actionData.fields[5];
+            NumPart = (int)actionData.fields[6];
+            NumReceipt = (int)actionData.fields[7];
+        }
     }
 }

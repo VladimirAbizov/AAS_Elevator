@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAAS_Elevator", "WebAAS_Elevator\WebAAS_Elevator.csproj", "{C1E135E1-C280-4A12-A0BE-D9B5E5EC4C47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAIS_Elevator", "WebAAS_Elevator\WebAIS_Elevator.csproj", "{C1E135E1-C280-4A12-A0BE-D9B5E5EC4C47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAAS_Elevator.Tests", "WebAAS_Elevator.Tests\WebAAS_Elevator.Tests.csproj", "{0B5F0064-7DA9-43D3-9D97-8717DE019600}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAIS_Elevator.Tests", "WebAAS_Elevator.Tests\WebAIS_Elevator.Tests.csproj", "{0B5F0064-7DA9-43D3-9D97-8717DE019600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using WebAAS_Elevator.Controllers;
 
 namespace WebAAS_Elevator.Models
 {
@@ -58,11 +54,11 @@ namespace WebAAS_Elevator.Models
 
         public TTN(ActionData actionData)
         {
-            NumTTN = (int)actionData.fieldsTTN[0];
-            DateOfReceipt = (DateTime)actionData.fieldsTTN[1];
-            Price = (int)actionData.fieldsTTN[2];
-            Soreness = (int)actionData.fieldsTTN[3];
-            Humidity = (int)actionData.fieldsTTN[4];
+            NumTTN = (int)actionData.fields[0];
+            DateOfReceipt = (DateTime)actionData.fields[1];
+            Price = (int)actionData.fields[2];
+            Soreness = (int)actionData.fields[3];
+            Humidity = (int)actionData.fields[4];
         }
     }
 }

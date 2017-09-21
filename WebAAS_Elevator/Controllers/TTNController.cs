@@ -9,11 +9,6 @@ using WebAAS_Elevator.Models;
 
 namespace WebAAS_Elevator.Controllers
 {
-    public class ActionData
-    {
-        public object[] fieldsTTN { get; set; }
-    }
-
     public class TTNController : ApiController
     {
         private readonly BookkeepingContext _bookkeepingContext = new BookkeepingContext();

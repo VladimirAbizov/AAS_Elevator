@@ -101,9 +101,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebAAS_Elevator\WebAAS_Elevator.csproj">
+    <ProjectReference Include="..\WebAAS_Elevator\WebAIS_Elevator.csproj">
       <Project>{C1E135E1-C280-4A12-A0BE-D9B5E5EC4C47}</Project>
-      <Name>WebAAS_Elevator</Name>
+      <Name>WebAIS_Elevator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
