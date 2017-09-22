@@ -9,7 +9,7 @@ using WebAAS_Elevator.Models;
 
 namespace WebAAS_Elevator.Controllers
 {
-    public class RegistryOfTTNController : ApiController
+    public class RegOfTTNController : ApiController
     {
         private readonly BookkeepingContext _bookkeepingContext = new BookkeepingContext();
 
@@ -28,19 +28,19 @@ namespace WebAAS_Elevator.Controllers
         /// </summary>
         /// <param name="numRegOfTTN">Номер накладной</param>
         /// <returns></returns>
-        // GET api/ttn/5
+        // GET api/regttn/5
         public RegistryOfTTN Get(int numRegOfTTN)
             {
                 return _bookkeepingContext.RegistersOfTTNs.Find(numRegOfTTN);
             }
 
-            /// <summary>
-            /// Добавляет реестр в базу данных
-            /// </summary>
-            /// <param name="actionData"></param>
-            /// <returns></returns>
-            // POST api/ttn
-            public HttpResponseMessage Post(ActionData actionData)
+        /// <summary>
+        /// Добавляет реестр в базу данных
+        /// </summary>
+        /// <param name="actionData"></param>
+        /// <returns></returns>
+        // POST api/regttn
+        public HttpResponseMessage Post(ActionData actionData)
             {
                 if (actionData == null)
                     return new HttpResponseMessage(HttpStatusCode.NoContent);
@@ -51,13 +51,13 @@ namespace WebAAS_Elevator.Controllers
                 return new HttpResponseMessage(HttpStatusCode.Created);
             }
 
-            /// <summary>
-            /// Обновляет реестр в базе данных по идентификатору <see cref="RegistryOfTTN.NumRegistry"/>
-            /// </summary>
-            /// <param name="id"></param>
-            /// <param name="registry"></param>
-            // PUT api/ttn/5
-            public void Put(int id, [FromBody]RegistryOfTTN registry)
+        /// <summary>
+        /// Обновляет реестр в базе данных по идентификатору <see cref="RegistryOfTTN.NumRegistry"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="registry"></param>
+        // PUT api/regttn/5
+        public void Put(int id, [FromBody]RegistryOfTTN registry)
             {
                 if (id == registry.NumRegistry)
                 {
@@ -67,12 +67,12 @@ namespace WebAAS_Elevator.Controllers
                 }
             }
 
-            /// <summary>
-            /// Удаляет реестр из базы данных
-            /// </summary>
-            /// <param name="id"></param>
-            // DELETE api/ttn/5
-            public void Delete(int id)
+        /// <summary>
+        /// Удаляет реестр из базы данных
+        /// </summary>
+        /// <param name="id"></param>
+        // DELETE api/regttn/5
+        public void Delete(int id)
             {
                 RegistryOfTTN registry = _bookkeepingContext.RegistersOfTTNs.Find(id);
                 if (registry != null)

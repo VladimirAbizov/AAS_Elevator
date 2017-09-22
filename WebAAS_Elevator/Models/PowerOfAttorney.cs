@@ -49,5 +49,16 @@ namespace WebAAS_Elevator.Models
         /// Прикрепленный перечень мат. средств
         /// </summary>
         public virtual ListOfMaterial ListOfMateriel { get; set; }
+
+        public PowerOfAttorney(ActionData actionData)
+        {
+            NumPowOfAttorney = (int)actionData.fields[0];
+            DateDelivery = (DateTime)actionData.fields[1];
+            NumAccount = (int)actionData.fields[2];
+            Bank = (string)actionData.fields[3];
+            Consumer = (string)actionData.fields[4];
+            Payer = (string)actionData.fields[5];
+            Provider = (string)actionData.fields[6];
+        }
     }
 }

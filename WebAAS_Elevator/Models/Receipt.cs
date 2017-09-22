@@ -44,5 +44,15 @@ namespace WebAAS_Elevator.Models
         /// Партия
         /// </summary>
         public virtual Party Party { get; set; }
+
+        public Receipt(ActionData actionData)
+        {
+            NumReceipt = (int)actionData.fields[0];
+            Date = (DateTime)actionData.fields[1];
+            TypeOfAdmission = (string) actionData.fields[2];
+            Sender = (string) actionData.fields[3];
+            PricePerKilo = (int) actionData.fields[4];
+            Summ = (int) actionData.fields[5];
+        }
     }
 }
