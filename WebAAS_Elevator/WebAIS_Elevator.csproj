@@ -153,6 +153,7 @@
     <Compile Include="Models\AnalysisCard.cs" />
     <Compile Include="Models\AnalysisJournal.cs" />
     <Compile Include="Contexts\BookkeepingContext.cs" />
+    <Compile Include="Models\DbInitializer.cs" />
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\Granary.cs" />
     <Compile Include="Models\ListOfMaterial.cs" />
@@ -190,6 +191,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />

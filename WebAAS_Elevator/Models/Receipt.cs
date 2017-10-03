@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,7 @@ namespace WebAAS_Elevator.Models
         /// <summary>
         /// Номер квитанции
         /// </summary>
+        [Key]
         public int NumReceipt { get; set; }
 
         /// <summary>
@@ -40,10 +42,10 @@ namespace WebAAS_Elevator.Models
         /// </summary>
         public int Summ { get; set; }
 
-        /// <summary>
-        /// Партия
-        /// </summary>
-        public virtual Party Party { get; set; }
+        ///// <summary>
+        ///// Партия
+        ///// </summary>
+        //public virtual Party Party { get; set; }
 
         public Receipt(ActionData actionData)
         {

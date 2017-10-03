@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAAS_Elevator.Models
 {
@@ -11,6 +12,7 @@ namespace WebAAS_Elevator.Models
         /// <summary>
         /// Номер реестра
         /// </summary>
+        [Key]
         public int NumRegistry { get; set; }
 
         /// <summary>

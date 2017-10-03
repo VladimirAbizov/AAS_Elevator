@@ -1,24 +1,189 @@
-﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+﻿<div id="tableBlock"></div>
+<div id="editBlock">
+    <p><b>Редактирование накладной</b></p>
+    <table>
+        <tr><td><input type="hidden" id="editId" /></td><td></td></tr>
+        <tr><td><label>Дата поступления: </label></td><td><input type="datetime" id="editDateOfReceipt" /></td></tr>
+        <tr><td><label>Цена: </label></td><td><input type="number" id="editPrice" /></td></tr>
+        <tr><td><label>Сорность: </label></td><td><input type="number" id="editSoreness"/></td></tr>
+        <tr><td><label>Влажность: </label></td><td><input type="number" id="editHumidity" /></td></tr>
+    </table>
+    <button id="editTTN">Сохранить</button>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
+<div id="createBlock">
+    <p><b>Добавление накладной</b></p>
+    <table>
+        <tr><td><label>Дата поступления: </label></td><td><input type="datetime" id="addDateOfReceipt" /></td></tr>
+        <tr><td><label>Цена: </label></td><td><input type="number" id="addPrice" /></td></tr>
+        <tr><td><label>Сорность: </label></td><td><input type="number" id="addSoreness"/></td></tr>
+        <tr><td><label>Влажность: </label></td><td><input type="number" id="addHumidity" /></td></tr>
+    </table>
+    <button id="addTTN">Добавить</button>
 </div>
+@section scripts
+{
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript">
+    
+        $(document).ready(function () {
+            //$(function () {
+                $("#editDateOfReceipt").mask("99-99-9999");
+                $("#addDateOfReceipt").mask("99-99-9999");
+            //});
+
+            GetAllTTNs();
+
+            $("#editTTN").click(function (event) {
+                event.preventDefault();
+                EditTTN();
+            });
+
+            $("#addTTN").click(function (event) {
+                event.preventDefault();
+                AddTTN();
+            });
+
+        });
+        // Получение всех накладных по ajax-запросу
+        function GetAllTTNs() {
+
+            $("#createBlock").css('display', 'block');
+            $("#editBlock").css('display', 'none');
+            $.ajax({
+                url: '/api/ttn',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    WriteResponse(data);
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+        // Добавление новой накладной
+        function AddTTN() {
+            // получаем значения для добавляемой накладной
+            var actionData = {
+                fields: [
+                    $('#addDateOfReceipt').val(),
+                    $('#addPrice').val(),
+                    $('#addSoreness').val(),
+                    $('#addHumidity').val()
+                ]
+            }
+
+            $.ajax({
+                url: '/api/ttn/',
+                type: 'POST',
+                data: actionData,
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    GetAllTTNs();
+                    alert("Накладная добавлена.");
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+        // Удаление накладной
+        function DeleteTTN(id) {
+
+            $.ajax({
+                url: '/api/ttn/' + id,
+                type: 'DELETE',
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    GetAllTTNs();
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+        // Редактирование накладной
+        function EditTTN() {
+            var id = $('#editId').val();
+            // получаем новые значения для редактируемой накладной
+            var actionData = {
+                fields: [
+                    $('#editDateOfReceipt').val(),
+                    $('#editPrice').val(),
+                    $('#editSoreness').val(),
+                    $('#editHumidity').val()
+                ]
+            }
+            $.ajax({
+                url: '/api/ttn/' + id,
+                type: 'PUT',
+                data: JSON.stringify(actionData),
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    GetAllTTNs();
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+        // вывод полученных данных на экран
+        function WriteResponse(ttns) {
+            if (ttns == null)
+                $("#tableBlock").html("Накладных нет.");
+            else {
+                var strResult = "<table><th>Номер накладной</th><th>Дата поступления</th><th>Цена</th><th>Сорность</th><th>Влажность</th>";
+                $.each(ttns, function (index, ttn) {
+                    strResult += "<tr><td>" + ttn.NumTTN + "</td><td> " + ttn.DateOfReceipt + "</td><td>" +
+                        ttn.Price + "</td><td>" + ttn.Soreness + "</td><td>" + ttn.Humidity +
+                        "</td><td><a id='editItem' data-item='" + ttn.NumTTN + "' onclick='EditItem(this);' >Редактировать</a></td>" +
+                        "<td><a id='delItem' data-item='" + ttn.NumTTN + "' onclick='DeleteItem(this);' >Удалить</a></td></tr>";
+                });
+                strResult += "</table>";
+                $("#tableBlock").html(strResult);
+            }
+        }
+        // обработчик удаления
+        function DeleteItem(el) {
+            // получаем id удаляемого объекта
+            var id = $(el).attr('data-item');
+            DeleteTTN(id);
+        }
+        // обработчик редактирования
+        function EditItem (el) {
+            // получаем id редактируемого объекта
+            var id = $(el).attr('data-item');
+            GetTTN(id);
+        }
+        // вывод данных редактируемой книги в поля для редактирования
+        function ShowTTN(ttn) {
+            if (ttn != null) {
+                $("#createBlock").css('display', 'none');
+                $("#editBlock").css('display', 'block');
+                $("#editNumTTN").val(ttn.NumTTN);
+                $("#editDateOfReceipt").val(ttn.DateOfReceipt);
+                $("#editPrice").val(ttn.Price);
+                $("#editSoreness").val(ttn.Soreness);
+                $("#editHumidity").val(ttn.Humidity);
+            }
+            else {
+                alert("Такая накладная не существует");
+            }
+        }
+        // запрос книги на редактирование
+        function GetTTN(id) {
+            $.ajax({
+                url: '/api/ttn/' + id,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    ShowTTN(data);
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+    </script>
+}

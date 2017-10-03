@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAAS_Elevator.Models
 {
@@ -11,6 +12,7 @@ namespace WebAAS_Elevator.Models
         /// <summary>
         /// Номер партии
         /// </summary>
+        [Key]
         public int NumParty { get; set; }
 
         /// <summary>
@@ -18,10 +20,10 @@ namespace WebAAS_Elevator.Models
         /// </summary>
         public DateTime? DateOfFormation { get; set; }
 
-        /// <summary>
-        /// Квитанция
-        /// </summary>
-        public virtual Receipt Receipt { get; set; }
+        ///// <summary>
+        ///// Квитанция
+        ///// </summary>
+        //public virtual Receipt Receipt { get; set; }
 
         /// <summary>
         /// Реестры ТТН-ок

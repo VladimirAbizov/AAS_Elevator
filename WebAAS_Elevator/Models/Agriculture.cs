@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,7 @@ namespace WebAAS_Elevator.Models
         /// <summary>
         /// Номер с/х культуры
         /// </summary>
+        [Key]
         public int NumAgriculture { get; set; }
         
         /// <summary>

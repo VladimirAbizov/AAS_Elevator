@@ -20,7 +20,10 @@ namespace WebAAS_Elevator.Controllers
         // GET api/ttn
         public IEnumerable<TTN> Get()
         {
-            return _bookkeepingContext.TTNs.ToList();
+            var temp = _bookkeepingContext.TTNs.ToList();
+            if (temp == null)
+                return null;
+            return temp;
         }
 
         /// <summary>

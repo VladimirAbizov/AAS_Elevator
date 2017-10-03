@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAAS_Elevator.Models
 {
@@ -10,6 +11,7 @@ namespace WebAAS_Elevator.Models
         /// <summary>
         /// Номер накладной
         /// </summary>
+        [Key]
         public int NumTTN { get; set; }
         
         /// <summary>
@@ -54,11 +56,11 @@ namespace WebAAS_Elevator.Models
 
         public TTN(ActionData actionData)
         {
-            NumTTN = (int)actionData.fields[0];
-            DateOfReceipt = (DateTime)actionData.fields[1];
-            Price = (int)actionData.fields[2];
-            Soreness = (int)actionData.fields[3];
-            Humidity = (int)actionData.fields[4];
+            DateOfReceipt = Convert.ToDateTime(actionData.fields[0]);
+            Price = Convert.ToInt32(actionData.fields[1]);
+            Soreness = Convert.ToInt32(actionData.fields[2]);
+            Humidity = Convert.ToInt32(actionData.fields[3]);
         }
+        public TTN() { }
     }
 }

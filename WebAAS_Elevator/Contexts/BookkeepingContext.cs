@@ -10,12 +10,12 @@ namespace WebAAS_Elevator.Models
         public DbSet<PowerOfAttorney> PowersOfAttorney { get; set; }
         public DbSet<Party> Parties { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<RegistryOfTTN>()
-                .HasMany(x => x.TTN);
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<RegistryOfTTN>()
+        //        .HasMany(x => x.TTN);
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }

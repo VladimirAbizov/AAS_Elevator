@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAAS_Elevator.Models
 {
@@ -10,6 +11,7 @@ namespace WebAAS_Elevator.Models
         /// <summary>
         /// Номер карты анализов
         /// </summary>
+        [Key]
         public int NumAnCard { get; set; }
 
         /// <summary>

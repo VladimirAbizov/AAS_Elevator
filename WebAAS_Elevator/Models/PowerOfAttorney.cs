@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,7 @@ namespace WebAAS_Elevator.Models
         /// <summary>
         /// Номер доверенности
         /// </summary>
+        [Key]
         public int NumPowOfAttorney { get; set; }
 
         /// <summary>
@@ -45,10 +47,10 @@ namespace WebAAS_Elevator.Models
         /// </summary>
         public string Provider { get; set; }
 
-        /// <summary>
-        /// Прикрепленный перечень мат. средств
-        /// </summary>
-        public virtual ListOfMaterial ListOfMateriel { get; set; }
+        ///// <summary>
+        ///// Прикрепленный перечень мат. средств
+        ///// </summary>
+        //public virtual ListOfMaterial ListOfMateriel { get; set; }
 
         public PowerOfAttorney(ActionData actionData)
         {
